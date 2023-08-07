@@ -1,0 +1,29 @@
+<div class="container" [ngStyle]="getStyle()">  
+    
+    <h3 style="text-align: center;"> Students <span style="Color: red; text-align: center;">Marks</span> </h3>  
+      <br>
+    <table class="table table-striped">  
+      <thead>  
+          <tr>  
+            <th>NAME</th>  
+            <th>EMAIL</th>  
+            <th>MARKS (out of 100) </th>  
+            <th>PASS/ FAIL </th>
+          </tr>  
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let Students of studentList">  
+          <td>{{ Students.Name }}</td>  
+          <td>{{ Students.Email }}</td>  
+          <td [ngClass]="getMarkColor(Students.Mark)">{{ Students.Mark }}</td>  
+          <td>
+            <span *ngIf="Students.Mark >= 50" class="pass-badge">PASS</span>
+            <span *ngIf="Students.Mark < 50" class="fail-badge">FAIL</span>
+          </td>
+        </tr>  
+      </tbody>  
+    </table>  
+  </div>  
+
+
+
